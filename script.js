@@ -182,155 +182,22 @@ navLinks.forEach(function (link) {
 
 /* ================= CONTACT FORM VALIDATION ================= */
 
-const contactForm =
-    document.getElementById("contactForm");
 
+const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener(
-    "submit",
-    function (event) {
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
+        alert("Thank you for contacting me!");
 
-        /* Get values */
+        contactForm.reset();
 
-        const name =
-            document.getElementById("name");
+    });
+}
 
-        const email =
-            document.getElementById("email");
-
-        const message =
-            document.getElementById("message");
-
-
-        /* Get error elements */
-
-        const nameError =
-            document.getElementById("nameError");
-
-        const emailError =
-            document.getElementById("emailError");
-
-        const messageError =
-            document.getElementById("messageError");
-
-        const successMessage =
-            document.getElementById(
-                "successMessage"
-            );
-
-
-        /* Clear previous messages */
-
-        nameError.textContent = "";
-
-        emailError.textContent = "";
-
-        messageError.textContent = "";
-
-        successMessage.textContent = "";
-
-
-        let isValid = true;
-
-
-
-        /* ===== NAME VALIDATION ===== */
-
-        if (name.value.trim() === "") {
-
-            nameError.textContent =
-                "Please enter your name.";
-
-            isValid = false;
-
-        }
-
-
-        else if (
-            name.value.trim().length < 2
-        ) {
-
-            nameError.textContent =
-                "Name must contain at least 2 characters.";
-
-            isValid = false;
-
-        }
-
-
-
-        /* ===== EMAIL VALIDATION ===== */
-
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-        if (email.value.trim() === "") {
-
-            emailError.textContent =
-                "Please enter your email.";
-
-            isValid = false;
-
-        }
-
-        else if (
-            !emailPattern.test(
-                email.value.trim()
-            )
-        ) {
-
-            emailError.textContent =
-                "Please enter a valid email address.";
-
-            isValid = false;
-
-        }
-
-
-
-        /* ===== MESSAGE VALIDATION ===== */
-
-        if (message.value.trim() === "") {
-
-            messageError.textContent =
-                "Please enter your message.";
-
-            isValid = false;
-
-        }
-
-        else if (
-            message.value.trim().length < 10
-        ) {
-
-            messageError.textContent =
-                "Message must contain at least 10 characters.";
-
-            isValid = false;
-
-        }
-
-
-
-        /* ===== SUCCESS ===== */
-
-        if (isValid) {
-
-            successMessage.textContent =
-                "Your message has been validated successfully!";
-
-            contactForm.reset();
-
-        }
-
-    }
-);
-
-
+      
 
 /* ================= SCROLL TO TOP ================= */
 
